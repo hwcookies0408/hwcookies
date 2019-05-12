@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +25,7 @@ SECRET_KEY = 'l$#a4a%)pe=!e=dncp2gax%**wv3!fz&(t*hpvg-me=l^yk4i1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', ]
 
 
 # Application definition
@@ -86,7 +86,17 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE':   'django.db.backends.mysql',
+#         'NAME':     'prj_db',                  # DB 이름
+#         'USER':     'root',                    # DB 사용자 이름
+#         'PASSWORD': 'mysql1229',              # DB 비밀번호
+#         'HOST':     '127.0.0.1',               # DB 서버 주소
+#         'PORT':     '',                        # DB 포트 (생략하면 MySQL 디폴트 포트 3306 자동 지정)
+#         'OPTIONS':  {'charset': 'utf8mb4'},
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -142,3 +152,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'  # 항상 '/'로 끝나야 함
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 INTERNAL_IPS = ['127.0.0.1']                            # 추가 3
+
+
+LOGIN_REDIRECT_URL = '/'

@@ -1,0 +1,65 @@
+<!DOCTYPE html>     <!--HTML5 규약을 준수하는 파일-->
+  <html lang="ko">    <!--언어는 한국어로 지정--><!---->
+
+  <head>              <!--페이지 타이틀과 css 파일 2개를 연결-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>HW 과자랜드</title>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- Custom stylesheet - for your changes-->
+  {% load staticfiles %}  <!--정적 파일인 css 연결하기 위하여, staticfiles를 로드-->
+  <!--스타일시트 css/base.css 작성이 필요함-->
+  <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'base.css' %}{% endblock %}" />
+  <link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
+  <link rel="shortcut icon" href="{% static 'cookie.ico' %}">
+
+  </head>
+  <body>              <!--바디 영역은 4 영역(헤더/메뉴/콘텐츠/풋터)으로 구성-->
+<!-- navbar-->
+<nav class="navbar navbar-light navbar-expand-lg fixed-top shadow-sm bg-light">
+  <a href="{% url 'index' %}" class="navbar-brand">
+    <img src="static/cookie.png" style="max-width: 30px; max-height: 30px;" />&nbsp;HW 과자랜드
+  </a>
+  <button type="button"
+          data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation" class="navbar-toggler">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navbarSupportedContent" class="collapse navbar-collapse">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a href="#" class="nav-link">소개</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">기능</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">공지</a></li>
+    </ul>
+    <div class="navbar-text ml-lg-3">
+    {% if user.is_active %} <!-- 로그인되면 user.is_active() 함수가 참을 반환-->
+        <h4 class="welcome">
+            <!-- firstof 태그는 뒤에 나오는 인자들 중에서 False 아닌 첫 인자를 선택함 -->
+            <strong>{% firstof user.get_short_name user.get_username %}</strong>&nbsp;&nbsp;
+            <a href="{% url 'password_change' %}">비밀번호 변경</a>&nbsp;&nbsp;
+            <a href="{% url 'logout' %}">로그아웃</a>
+        </h4>
+    {% else %}
+        <h4 class="welcome">
+            <a href="{% url 'login' %}">로그인</a>&nbsp;&nbsp;
+            <a href="{% url 'register' %}">회원가입</a>
+        </h4>
+    {% endif %}
+    </div>
+  </div>
+</nav>
+
+
+
+
+  {% block content %}{% endblock %}   <!--블록 태그로 콘텐츠 영역 정의 -->
+
+  {% block footer %}{% endblock %}    <!--블록 태그로 풋터 영역 정의-->
+
+  </body>
+  </html>

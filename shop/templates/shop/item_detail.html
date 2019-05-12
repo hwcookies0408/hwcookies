@@ -12,23 +12,19 @@
         </thead>
         <tbody>
         <tr>
-            <td width="15%">id:</td>
-            <td><input type="text" value={{ item.id }} style="text-align:right;"></td>
-        </tr>
-        <tr>
-            <td>상품:</td>
+            <td>상품명:</td>
             <td><input type="text" value="{{ item.name }}"></td>
         </tr>
         <tr>
-            <td>설명:</td>
+            <td>상품설명:</td>
             <td>
                 <textarea cols="40" rows="10">{{ item.desc.strip }}</textarea>
             </td>
         </tr>
         <tr>
             <td>가격:</td>
-            <td><input type="text" value="{{ item.price|intcomma }}"
-                       style = "text-align:right;"> 원
+            <td>
+                <input type="text" value="{{ item.price|intcomma }}" style = "text-align:right;"> 원
             </td>
         </tr>
         <tr>
@@ -53,7 +49,7 @@
 <a href="{% url 'shop:item_edit' item.pk %}">상품 정보 수정</a>
 <a href="{% url 'shop:item_remove' item.pk %}">상품 정보 삭제</a>
 
-
+<h3>Reviews</h3>
 
 <table>
     <thead>

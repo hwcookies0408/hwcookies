@@ -52,25 +52,4 @@
 
 <a href="{% url 'shop:item_new' %}">새 상품 등록</a>
 
-{#    {{ request }} <br/>#}
-{#    request.method: {{ request.method }} <br/>#}
-{#    request.GET: {{ request.GET }} <br/>#}
-{#    request.META: {{ request.META }}#}
-{#    <hr/>#}
-{#    {{ item_list }}#}
-{#    <hr>#}
-{#    {% for item in item_list %}#}
-{#        {{ item }} <br>#}
-{#    {% endfor %}#}
-{#    <hr>#}
-{#    {% for item in item_list %}#}
-{#        {{ item.name }} ##}
-{#        {{ item.desc }} ##}
-{#        {{ item.photo }} ##}
-{#        {{ item.created_at }} ##}
-{#        {{ item.updated_at }} <br/>#}
-{#        {% if item.photo %}#}
-{#            <img src="{{ item.photo.url }}" />#}
-{#        {% endif %} <br/>#}
-{#    {% endfor %}#}
 {% endblock %}

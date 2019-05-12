@@ -1,0 +1,56 @@
+  div#content_home {
+      position: absolute;
+      top: 80px;
+
+      left: 110px;
+      right: 110px;
+      text-align: center;
+  }
+
+  div#homeimg {
+      /*background: #ddd;*/
+      padding: 5px 0 1px 0;
+      text-align: center;
+  }
+
+  div#sortmenu {
+      text-align: center;
+  }
+
+  div#searchBox{
+      width: 908px;
+      height:45px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  a#searchButton{
+      width: 100px;
+      height: 43px;
+      background:#054c78;
+      border-radius: 0 5px 5px 0;
+      color: white;
+      /*border: 1px #365;*/
+      display:inline-block;
+      text-align:center;
+      vertical-align:middle;
+      font-size:16px;
+      border:1px solid #054c78;
+      line-height:38px;
+      text-decoration: none;
+  }
+  a#searchButton:hover {
+      background-color: #4CAF50;
+      border:1px solid #4CAF50;
+      cursor:pointer;
+  }
+  input#search{
+      border-radius: 5px 0 0 5px  ;
+      border:1px solid lightgray;
+      width: 800px;
+      height: 40px;
+      /*margin-left: 150px;*/
+      float:left;
+
+  }
