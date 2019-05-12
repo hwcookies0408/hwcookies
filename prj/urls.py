@@ -8,13 +8,11 @@ from . import views
 
 
 urlpatterns = [
-
     re_path(r'^accounts/', include('django.contrib.auth.urls')),
     # 계정 가입 처리하는 URL
     re_path(r'^accounts/register/$', UserCreateView.as_view(), name='register'),
     # 계정 가입 완료될 때 보여줄 URL
     re_path(r'^accounts/register/done/$', UserCreateDoneTV.as_view(), name='register_done'),
-
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name='index'),
     path('shop/', include('shop.urls')),

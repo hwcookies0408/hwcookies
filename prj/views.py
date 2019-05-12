@@ -24,16 +24,11 @@ from blog.models import Post
 
 # 계정 등록                                         ch11 2/2
 class UserCreateView(CreateView):
-  # /accounts/register/ URL을 처리하는 뷰
-  # 아래와 같이 중요한 속성만 지정하면, 그에 따라서 폼을 템플릿에 보여주고,
-  # 입력 오류 검사 후, 입력한 내용으로 사용자 레코드를 생성하고,
-  # 성공하면, success_url로 리다이렉트 시킴
   template_name = 'registration/register.html'
   form_class = UserCreationForm
   success_url = reverse_lazy('register_done')
 
 class UserCreateDoneTV(TemplateView):
-  # User 생성이 성공하면 success_url 요청을 처리하는 뷰
   template_name = 'registration/register_done.html'
 
 class LoginRequiredMixin(object):
@@ -62,7 +57,7 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['post_list'] = Post.objects.order_by('-updated_at')[:6]
-        context['item_list'] = Item.objects.order_by('-price')[:8]
+        context['item_list'] = Item.objects.order_by('-price')[:3]
 
         return context
 
